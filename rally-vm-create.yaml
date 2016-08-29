@@ -12,3 +12,8 @@
     builders:
       - shell:
           !include-raw: ./create-vm-server.sh
+    publishers:
+      - email:
+          recipients: 'stephen.lowrie@rackspace.com steve.heyman@rackspace.com daryl.walleck@rackspace.com'
+      - trigger:
+          project: 'Rally-Run-Tests-VM'
