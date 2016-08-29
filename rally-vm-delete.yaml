@@ -1,0 +1,16 @@
+- job:
+    name: Rally-Delete-Server-VM
+    project-type: freestyle
+    defaults: global
+    description: 'Do not edit this job through the web'
+    disabled: false
+    display-name: 'Delete Server for Rally Tests'
+    concurrent: false
+    quiet-period: 5
+    block-downstream: false
+    block-upstream: false
+    builders:
+      - shell:
+          #!/bin/bash
+          source $JENKINS_HOME/rally_vm.sh
+          rack servers instance delete --name $name
