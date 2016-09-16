@@ -1,4 +1,5 @@
 #!/bin/bash
+
 name=$(uuidgen)
 wget https://raw.github.com/arithx/shstack/master/user_data.yml
 
@@ -51,7 +52,8 @@ while [[ "$count" -lt 3 ]] ; do
                 # Break if Cloud-init & finished are in the last line received
                 if [ ! -z  "$(echo $tmp_last_line | egrep "Cloud-init" | egrep "finished")" ] ; then
                     echo "Last cloud-init line detected $tmp_last_line"
-                    break
+                    echo NAME=$name$'\n'IP=$ip > $JENKINS_HOME/rally_vm.sh
+                    exit 0
                 fi
                 same_count=0
                 last_line=$tmp_last_line
@@ -68,6 +70,3 @@ done
 if [ "$count" -eq 3 ] ; then
     exit 1
 fi
-
-echo "name=$name
-ip=$SERVER" > $JENKINS_HOME/rally_vm.sh

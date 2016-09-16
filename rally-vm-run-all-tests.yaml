@@ -1,19 +1,19 @@
 - job:
-    name: Rally-Create-Server-VM
+    name: Rally-Run-All-Tests-VM
     project-type: freestyle
     defaults: global
     description: 'Do not edit this job through the web'
     disabled: false
-    display-name: 'VM - Create Server for Rally Tests'
+    display-name: 'VM - Run Rally Tests'
     concurrent: false
     quiet-period: 5
     block-downstream: false
     block-upstream: false
     builders:
       - shell:
-          !include-raw: ./create-vm-server.sh
+          !include-raw: ./run-vm-all-tests.sh
     publishers:
       - email:
           recipients: 'stephen.lowrie@rackspace.com steve.heyman@rackspace.com daryl.walleck@rackspace.com'
       - trigger:
-          project: 'Rally-Run-Tests-VM'
+          project: 'Rally-Delete-Server-VM'

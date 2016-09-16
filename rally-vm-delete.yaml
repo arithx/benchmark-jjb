@@ -4,7 +4,7 @@
     defaults: global
     description: 'Do not edit this job through the web'
     disabled: false
-    display-name: 'Delete Server for Rally Tests'
+    display-name: 'VM - Delete Server for Rally Tests'
     concurrent: false
     quiet-period: 5
     block-downstream: false
@@ -13,7 +13,7 @@
       - shell:
           #!/bin/bash
           source $JENKINS_HOME/rally_vm.sh
-          rack servers instance delete --name $name
+          rack servers instance delete --name $NAME
     publishers:
       - email:
           recipients: 'stephen.lowrie@rackspace.com steve.heyman@rackspace.com daryl.walleck@rackspace.com'
