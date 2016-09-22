@@ -45,5 +45,5 @@ temp_url=$(python temp_url.py $file_name)
 echo $temp_url
 
 # parse the logs and upload them to ElasticSearch
-scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $WORKSPACE/results.json root@104.130.29.181:~
-ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@104.130.29.181 "cat results.json | elastic-benchmark -t rally -l $temp_url"
+scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $WORKSPACE/results.json root@104.239.149.33:~
+ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@104.239.149.33 "cat results.json | elastic-benchmark -t rally -l $temp_url"
