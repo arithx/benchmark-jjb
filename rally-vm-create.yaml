@@ -16,4 +16,4 @@
       - email:
           recipients: 'stephen.lowrie@rackspace.com steve.heyman@rackspace.com daryl.walleck@rackspace.com'
       - trigger:
-          project: 'Rally-Run-Tests-VM'
+          project: 'Rally-Run-All-Tests-VM'

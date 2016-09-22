@@ -17,3 +17,4 @@
           recipients: 'stephen.lowrie@rackspace.com steve.heyman@rackspace.com daryl.walleck@rackspace.com'
       - trigger:
           project: 'Rally-Delete-Server-VM'
+          criteria: 'failure'
